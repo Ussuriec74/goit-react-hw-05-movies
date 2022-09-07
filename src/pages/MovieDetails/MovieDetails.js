@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Navigate, Outlet, Link, useLocation, useParams } from 'react-router-dom';
 import { BiArrowBack } from "react-icons/bi";
+import { Box } from 'components/Box';
 import { fetchMovieById } from '../../servises/moviesApi';
 import { MovieCard } from 'components/MovieCard/MovieCard';
 
@@ -49,6 +50,21 @@ export const MovieDetails = () => {
         movieGenres={movieGenres}
         movieRelease={movieRelease}
       />
+      <Box>
+        <h4>Additional information:</h4>
+        <ul>
+          <li>
+            <Link to="cast" datarelease={movieRelease}>
+              Cast
+            </Link>
+          </li>
+          <li>
+            <Link to="reviews">Reviews</Link>
+          </li>
+        </ul>
+        <Outlet /> 
+      </Box>
+
 
     </>
   )
