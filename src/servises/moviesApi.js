@@ -36,4 +36,23 @@ async function fetchMovieById(id) {
     }
   }
   
-export { fetchTrendingMovies, fetchMoviesOnSearch, fetchMovieById };
+async function fetchCast(id) {
+  try {
+    const response = await axios.get(`/movie/${id}/credits?api_key=${API_KEY}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function fetchReviews(id) {
+  try {
+    const response = await axios.get(`/movie/${id}/reviews?api_key=${API_KEY}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export { fetchTrendingMovies, fetchMoviesOnSearch, fetchMovieById, fetchCast, fetchReviews };
+
