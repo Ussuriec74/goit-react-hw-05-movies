@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { fetchCast } from '../../servises/moviesApi';
+import { ActerPhoto } from 'components/Cast/Cast.styled';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -27,7 +28,7 @@ const Cast = () => {
         : (<ul>
           {cast.map(acter => (
             <li key={acter.cast_id}>
-              <img
+              <ActerPhoto
                 src={`https://image.tmdb.org/t/p/w200${acter.profile_path}`}
                 alt={acter.name}
               />

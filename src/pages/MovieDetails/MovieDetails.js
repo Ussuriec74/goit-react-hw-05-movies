@@ -1,10 +1,11 @@
 import { useState, useEffect, Suspense } from 'react';
-import { Navigate, Outlet, Link, useLocation, useParams } from 'react-router-dom';
+import { Navigate, Outlet, useLocation, useParams } from 'react-router-dom';
 import { BiArrowBack } from "react-icons/bi";
 import { Box } from 'components/Box';
 import { fetchMovieById } from '../../servises/moviesApi';
 import { MovieCard } from 'components/MovieCard/MovieCard';
 import { Loader } from 'components/Loader/Loader';
+import { GoBackBtn, BtnList, AdditionalBtn } from './MovieDetails.styled';
 
 
 const MovieDetails = () => {
@@ -42,27 +43,27 @@ const MovieDetails = () => {
   return (
     <>
       {error && <Navigate to="/movies" replace />}
-      <Link to={backLink}>
+      <GoBackBtn to={backLink}>
         <BiArrowBack />Go Back
-      </Link>
+      </GoBackBtn>
       <MovieCard
         movieDetails={movieDetails}
         imageSrc={imageSrc}
         movieGenres={movieGenres}
         movieRelease={movieRelease}
       />
-      <Box>
+      <Box pt={4} ml={4} mr={4} borderTop="2px solid gray" >
         <h4>Additional information:</h4>
-        <ul>
+        <BtnList >
           <li>
-            <Link to="cast" datarelease={movieRelease}>
+            <AdditionalBtn to="cast" datarelease={movieRelease}>
               Cast
-            </Link>
+            </AdditionalBtn>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <AdditionalBtn to="reviews">Reviews</AdditionalBtn>
           </li>
-        </ul>
+        </BtnList>
         <Suspense fallback={ <Loader /> }>
           <Outlet />
         </Suspense> 

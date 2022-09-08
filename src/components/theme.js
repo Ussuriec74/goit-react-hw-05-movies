@@ -1,8 +1,10 @@
 export const theme = {
   colors: {
     white: '#ffffff',
+    black: '#000000',
     green: 'green',
     red: 'red',
+    gray: 'gray',
     bgBtnHover: '#51EAFF',
     bgBody: '#D1D3D4',
     bgStats: '#F1F2F2',
@@ -40,6 +42,7 @@ export const theme = {
   borders: {
     none: 'none',
     normal: '1px solid',
+    bold: '2px solid',
   },
   radii: {
     none: '0',
