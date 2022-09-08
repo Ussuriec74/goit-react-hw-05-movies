@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { Navigate, Outlet, Link, useLocation, useParams } from 'react-router-dom';
 import { BiArrowBack } from "react-icons/bi";
 import { Box } from 'components/Box';
 import { fetchMovieById } from '../../servises/moviesApi';
 import { MovieCard } from 'components/MovieCard/MovieCard';
+import { Loader } from 'components/Loader/Loader';
 
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
 
   const location = useLocation();
   const { movieId } = useParams();
@@ -62,10 +63,14 @@ export const MovieDetails = () => {
             <Link to="reviews">Reviews</Link>
           </li>
         </ul>
-        <Outlet /> 
+        <Suspense fallback={ <Loader /> }>
+          <Outlet />
+        </Suspense> 
       </Box>
 
 
     </>
   )
 }
+
+export default MovieDetails;

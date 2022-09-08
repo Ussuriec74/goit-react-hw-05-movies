@@ -4,7 +4,7 @@ import { Box } from 'components/Box';
 import { Searchbar } from 'components/Searchbar/Searchbar';
 import { fetchMoviesOnSearch } from '../../servises/moviesApi';
 
-export const Movies = () => {
+const Movies = () => {
 
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -48,3 +48,5 @@ export const Movies = () => {
     </>
   );
 };
+
+export default Movies;

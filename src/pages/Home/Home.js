@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { fetchTrendingMovies } from '../../servises/moviesApi';
 
-export const Home = () => {
+const Home = () => {
   
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [error, setError] = useState(null);
@@ -37,3 +37,5 @@ export const Home = () => {
   )
   
 }
+
+export default Home;
