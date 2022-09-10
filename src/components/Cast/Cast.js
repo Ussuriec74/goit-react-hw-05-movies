@@ -23,7 +23,7 @@ const Cast = () => {
   return (
     <>
       {error && <Navigate to="/movies" replace />}
-      {!cast
+      {cast.length === 0
         ? (<p>We don`t have any cast on this movie</p>)
         : (<ul>
           {cast.map(acter => (

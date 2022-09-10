@@ -12,7 +12,6 @@ const MovieDetails = () => {
 
   const location = useLocation();
   const { movieId } = useParams();
-  const backLink = location?.state?.from ?? `/`;
   const [movieDetails, setMovieDetails] = useState([]);
   const [imageSrc, setImageSrc] = useState('');
   const [movieGenres, setMovieGenres] = useState('');
@@ -38,7 +37,7 @@ const MovieDetails = () => {
     getMovieDetails();
   }, [movieId]);
 
-  
+  const backLink = location?.state?.from ?? `/`;
 
   return (
     <>
