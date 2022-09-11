@@ -37,7 +37,7 @@ const MovieDetails = () => {
     getMovieDetails();
   }, [movieId]);
 
-  const backLink = location?.state?.from ?? `/`;
+  const backLink = location.state?.from ?? "/";;
 
   return (
     <>
@@ -55,12 +55,12 @@ const MovieDetails = () => {
         <h4>Additional information:</h4>
         <BtnList >
           <li>
-            <AdditionalBtn to="cast" datarelease={movieRelease}>
+            <AdditionalBtn to="cast" state={{ from: location?.state?.from }} datarelease={movieRelease}>
               Cast
             </AdditionalBtn>
           </li>
           <li>
-            <AdditionalBtn to="reviews">Reviews</AdditionalBtn>
+            <AdditionalBtn to="reviews" state={{ from: location?.state?.from }}>Reviews</AdditionalBtn>
           </li>
         </BtnList>
         <Suspense fallback={ <Loader /> }>
